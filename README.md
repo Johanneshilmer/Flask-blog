@@ -1,3 +1,3 @@
-# LearnAPI
+# Python Flask blog-website.
 
-This project is a way for me to learn API/backend/frontend.
+This project is a way for me to learn python and flask.
