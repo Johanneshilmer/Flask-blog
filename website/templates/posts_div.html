@@ -7,11 +7,11 @@
         <div class="card-header d-flex justify-content-between align-items-center">
           <a href="/posts/{{post.user.username}}">{{post.user.username}}</a>
           <div>
-            {{post.Likes|length}}
-            {% if user.id in post.Likes|map(attribute="author")|list %}
-            <a href="/like-post/{{post.id}}"><i class="fa-regular fa-thumbs-up"></i></a>
+            {{post.likes|length}}
+            {% if user.id in post.likes|map(attribute="author")|list %}
+            <a href="/like-post/{{post.id}}"><i class="fas fa-thumbs-up"></i></a>
             {% else %}
-            <a href="/like-post/{{post.id}}"><i class="fa-solid fa-thumbs-up"></i></a>
+            <a href="/like-post/{{post.id}}"><i class="far fa-thumbs-up"></i></a>
             {% endif %}
             {% if user.id == post.author %}
           <div class="btn-group">

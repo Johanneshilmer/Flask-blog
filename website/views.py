@@ -94,7 +94,7 @@ def delete_comment(comment_id):
 @views.route("/like-post/<post_id>", methods=["GET"])
 @login_required
 def like(post_id):
-    post = Post.query.filter_by(id=post_id)
+    post = Post.query.filter_by(id=post_id).first()
     like = Like.query.filter_by(author=current_user.id, post_id=post_id).first()
 
     if not post:
