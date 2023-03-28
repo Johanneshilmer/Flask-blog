@@ -13,6 +13,7 @@ def home():
     posts = Post.query.all()
     return render_template("home.html", user = current_user, posts = posts)
 
+#User create post.
 @views.route("/create-post", methods=["GET", "POST"])
 @login_required
 def create_post():
@@ -30,6 +31,7 @@ def create_post():
 
     return render_template("create_post.html", user = current_user)
 
+#User can delete own post.
 @views.route("/delete-post/<id>")
 @login_required
 def delete_post(id):
@@ -46,6 +48,7 @@ def delete_post(id):
 
     return redirect(url_for("views.home"))
 
+#Visit the post owners pages.
 @views.route("/posts/<username>")
 @login_required
 def posts(username):
@@ -58,6 +61,7 @@ def posts(username):
     posts = user.posts
     return render_template("posts.html", user=current_user, posts=posts, username=username)
 
+#User create comment.
 @views.route("/create-comment/<post_id>", methods=["POST"])
 @login_required
 def create_comment(post_id):
@@ -76,6 +80,7 @@ def create_comment(post_id):
 
     return redirect(url_for("views.home"))
 
+#User can delete comment.
 @views.route("/delete-comment/<comment_id>")
 @login_required
 def delete_comment(comment_id):
@@ -91,6 +96,7 @@ def delete_comment(comment_id):
 
     return redirect(url_for("views.home"))
 
+#User interacts with like button.
 @views.route("/like-post/<post_id>", methods=["POST"])
 @login_required
 def like(post_id):

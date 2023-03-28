@@ -6,7 +6,7 @@ from flask_login import LoginManager
 db = SQLAlchemy()
 DB_NAME = "database.db"
 
-
+#Create the webbapp
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = "helloworld"
@@ -33,6 +33,7 @@ def create_app():
 
     return app
 
+#Create DB.
 def create_database(app):
     with app.app_context(): #Getting "RuntimeError" that says that i need "with app.app_context".
         if not path.exists(DB_NAME):

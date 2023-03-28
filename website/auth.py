@@ -6,6 +6,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 auth = Blueprint("auth", __name__)
 
+#Loggin the user with data on DB
 @auth.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -25,6 +26,7 @@ def login():
     
     return render_template("login.html", user = current_user)
 
+#Function to create user.
 @auth.route("/sign-up", methods=["GET", "POST"])
 def signup():
     if request.method == "POST":
